@@ -58,7 +58,38 @@ def jugantor():
     print(allnews[:10])
     return allnews    
 
+# ManabZamin Scraper
+def mzamin():
+    baseurl = "https://mzamin.com/"
+    url = "https://mzamin.com/paper.php"
 
-jugantor()   
+    linkdetains = []
+    all_title = []
+    r =requests.get(url,headers=headers)
+    soup = BeautifulSoup(r.content, "html.parser")
+    dvi = soup.find_all("div", class_="col")
+    titele = soup.find_all("h5", class_="card-title fw-bold")
+
+
+    link = [title.find("a") for title in titele]
+    for i in link[0:40]:
+        all_title.append(i.text)
+    link = [i["href"] for i in link]
+    for i in link[0:40]:
+        link = f"{baseurl}{i}"
+        linkdetains.append(link)
+
+
+    mz = {"title": all_title, "link": linkdetains}
+    df = pd.DataFrame(mz)
+    allnewses = df.to_dict(orient="record")
+    print(allnewses)
+    
+    return allnewses
+
+
+if __name__ == '__main__':
+    jugantor()
+    mzamin()   
 
 
