@@ -53,6 +53,10 @@ def extract_book_data(links):
         }
         all_books_details.append(book)
     return all_books_details
+    
+
+def save_to_database():
+    pass
 
 
 if __name__ == "__main__":
