@@ -169,12 +169,13 @@ def show_and_save_data():
         df = pd.DataFrame(totla_teams)
         df.to_excel("total_teams.xlsx", index=False)    
     else:
-        print("invalid input")    
+        print("invalid input") 
+           
 
-
-div = get_data()
-tm,hm,am = slice_div(div)
-show_and_save_data() 
+if __name__ == "__main__":
+    div = get_data()
+    tm,hm,am = slice_div(div)
+    show_and_save_data() 
 
 
 
