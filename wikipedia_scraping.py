@@ -13,3 +13,6 @@ def get_page(url):
     print(soup)
     return soup
 
+def main():  
+    soup = get_page(url)
+    
