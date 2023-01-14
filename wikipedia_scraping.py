@@ -15,4 +15,8 @@ def get_page(url):
 
 def main():  
     soup = get_page(url)
-    
+
+
+
+def save_data(data):
+    pass
