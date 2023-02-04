@@ -24,3 +24,8 @@ def slice_div(div):
 
 
 
+if __name__ == "__main__":
+    div = get_html(url)
+    total_matches,home_matches,away_matches = slice_div(div)
+
+
