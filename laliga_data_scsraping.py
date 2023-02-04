@@ -23,7 +23,7 @@ def slice_div(div):
     return total_matches, home_matches, away_matches
 
 
-def extract_total_mataches_data(total_matches):
+def extract_mataches_data(total_matches):
     all_teams = []
     for t in total_matches:
         # print(f'div {g} is scraping')
@@ -63,6 +63,15 @@ def extract_total_mataches_data(total_matches):
 if __name__ == "__main__":
     div = get_html(url)
     total_matches,home_matches,away_matches = slice_div(div)
-    print(extract_total_mataches_data(total_matches))
+    matches_category = [total_matches,home_matches,away_matches]
+    
+    all_matches_data = []
+    for cat in matches_category:
+        data = extract_mataches_data(cat)
+        all_matches_data.append(data)
+
+    total_matches_data = all_matches_data[0]
+    home_matches_data = all_matches_data[1]
+    away_matches_data = all_matches_data[2]
 
 
