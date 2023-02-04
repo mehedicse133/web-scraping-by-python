@@ -16,10 +16,11 @@ def get_html(url):
 
     return html
 
-
-
-
-
+def slice_div(div):
+    total_matches = div[:20]
+    home_matches = div[20:40]
+    away_matches= div[40:60]
+    return total_matches, home_matches, away_matches
 
 
 
