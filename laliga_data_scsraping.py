@@ -59,8 +59,18 @@ def extract_mataches_data(match_category):
     return all_teams
 
 
-def save_data():
-    pass
+def save_data(data):
+    total_matches_data = data[0]
+    home_matches_data = data[1]
+    away_matches_data = data[2]
+
+    print('Dawolosd data into excel file....')
+    print("1, for total_matches_data")
+    print("2, for home_matches_data")
+    print("3, for away_matches_data")
+    user = input("Enter 1 or 2 or 3 ....")
+
+
 
 if __name__ == "__main__":
     url = 'https://www.laliga.com/en-GB/laliga-santander/standing'
@@ -74,8 +84,9 @@ if __name__ == "__main__":
         data = extract_mataches_data(cat)
         all_matches_data.append(data)
 
-    total_matches_data = all_matches_data[0]
-    home_matches_data = all_matches_data[1]
-    away_matches_data = all_matches_data[2]
+    # total_matches_data = all_matches_data[0]
+    # home_matches_data = all_matches_data[1]
+    # away_matches_data = all_matches_data[2]
+    save_data(all_matches_data)
 
 
