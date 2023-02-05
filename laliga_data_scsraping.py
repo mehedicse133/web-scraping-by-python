@@ -59,6 +59,8 @@ def extract_mataches_data(match_category):
     return all_teams
 
 
+def save_data():
+    pass
 
 if __name__ == "__main__":
     url = 'https://www.laliga.com/en-GB/laliga-santander/standing'
