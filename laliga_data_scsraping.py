@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 
-url = 'https://www.laliga.com/en-GB/laliga-santander/standing'
+
 
 def get_html(url):
     headers = {
@@ -23,9 +23,9 @@ def slice_div(div):
     return total_matches, home_matches, away_matches
 
 
-def extract_mataches_data(total_matches):
+def extract_mataches_data(match_category):
     all_teams = []
-    for t in total_matches:
+    for t in match_category:
         # print(f'div {g} is scraping')
         all_p = t.find_all('p')
         scores = []
@@ -61,6 +61,8 @@ def extract_mataches_data(total_matches):
 
 
 if __name__ == "__main__":
+    url = 'https://www.laliga.com/en-GB/laliga-santander/standing'
+    
     div = get_html(url)
     total_matches,home_matches,away_matches = slice_div(div)
     matches_category = [total_matches,home_matches,away_matches]
