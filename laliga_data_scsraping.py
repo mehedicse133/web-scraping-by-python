@@ -3,8 +3,6 @@ from bs4 import BeautifulSoup
 import pandas as pd
 
 
-
-
 def get_html(url):
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36"
@@ -21,7 +19,6 @@ def slice_div(div):
     home_matches = div[20:40]
     away_matches= div[40:60]
     return total_matches, home_matches, away_matches
-
 
 def extract_mataches_data(match_category):
     all_teams = []
@@ -54,10 +51,8 @@ def extract_mataches_data(match_category):
             'GA': fa,
             'GD': gd
         }
-
         all_teams.append(team)
     return all_teams
-
 
 def save_data(data):
     total_matches_data = data[0]
@@ -70,6 +65,20 @@ def save_data(data):
     print("3, for away_matches_data")
     user = input("Enter 1 or 2 or 3 ....")
 
+    if user == '1':
+        print("Save tota matches data ......")
+        df = pd.DataFrame(total_matches_data)
+        df.to_excel("total_matches_data.xlsx", index=False)
+    elif user == '2':
+        print("home_matches_data")
+        df = pd.DataFrame(home_matches_data)
+        df.to_excel("home_matches_data.xlsx", index=False)
+    elif user == '3':
+        print("away_matches_data")
+        df = pd.DataFrame(away_matches_data)
+        df.to_excel(" away_matches_data.xlsx", index=False)
+    else:
+        print("invalid input")
 
 
 if __name__ == "__main__":
