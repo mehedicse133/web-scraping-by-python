@@ -20,6 +20,7 @@ def extract_data(soup):
 
 
 def save_data(data):
+    print("saving data")
     pass
 
 def main():  
