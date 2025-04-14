@@ -25,10 +25,11 @@ def save_data(data):
 
 def main():  
     soup = get_page(url)
-   
     data = extract_data(soup)
     save_data(data)
 
+def a():
+    pass
 
 if __name__=="__main__":
     main()
